@@ -1,9 +1,15 @@
 import React from "react";
 import { IStore } from "../interfaces";
-import user from "./UserStores";
+import auth from "./AuthStore";
+import user from "./UserStore"
+import stories from "./StoriesStore"
+import cards from "./CardsStore"
 
 export const storeInstance = {
-  user
+  auth,
+  user,
+  stories,
+  cards
 }
 
 export const storesContext = React.createContext<IStore>(storeInstance)

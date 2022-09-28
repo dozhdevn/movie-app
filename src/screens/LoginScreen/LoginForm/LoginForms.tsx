@@ -17,10 +17,11 @@ export const LoginForm: React.FC = observer((): JSX.Element => {
     reset
   } = useForm<ILoginData>()
 
-  const { user } = useStores()
+  const { auth } = useStores()
 
   const submitHandler: SubmitHandler<ILoginData> = (data) => {
-    user.login(data)
+    auth.login(data)
+    reset()
   }
 
   return (
@@ -55,10 +56,11 @@ export const LoginForm: React.FC = observer((): JSX.Element => {
       />
 
       <Button
+        primary
         title='Let`s go!'
         disabled={false}
-        onPress={handleSubmit(submitHandler)}></Button>
-      <Text>{user.auth ? 'Да' : 'Нет'}</Text>
+        onPress={handleSubmit(submitHandler)}/>
+      <Text>{auth.auth ? 'Да' : 'Нет'}</Text>
     </View>
   )
 })

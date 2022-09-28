@@ -1,12 +1,19 @@
 import axios from "axios";
-import { ILoginData, IUserData } from "../interfaces";
-
+import { IUser } from "../interfaces";
 
 export class UserService {
-  static endpoint = 'http://localhost:4200/api/auth/login'
+  static userDataEndpoint = `https://632cd7b0519d17fb53b4c62d.mockapi.io/users/1`
 
-  static async login(loginData: ILoginData) {
-    const { data } = await axios.post<IUserData>(this.endpoint, loginData)
+  static async getUserData() {
+    const { data } = await axios.get<IUser>(this.userDataEndpoint)
+
+    return data
+  }
+
+  static async updateUser(name: string) {
+    const { data } = await axios.put<IUser>(this.userDataEndpoint, {
+      name
+    })
     return data
   }
 }

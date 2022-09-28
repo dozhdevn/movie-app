@@ -1,19 +1,20 @@
 import React from 'react'
-import { TouchableOpacity, Text } from "react-native";
+import { Text, TouchableHighlight, TouchableOpacity } from "react-native";
 
 interface ButtonProps {
-  disabled: boolean
+  primary?: boolean
+  disabled?: boolean
   title: string
   onPress: () => void
 }
 
-export const Button: React.FC<ButtonProps> = ({ title, disabled, onPress }): JSX.Element => {
+export const Button: React.FC<ButtonProps> = ({ title, disabled = false, onPress, primary = false }): JSX.Element => {
   return (
     <TouchableOpacity
       disabled={disabled}
       onPress={onPress}
       style={{
-        backgroundColor: '#fde047',
+        backgroundColor: primary ? '#fde047' : '#e5e7eb',
         width: '100%',
         padding: 12,
         marginBottom: 16,
@@ -25,7 +26,6 @@ export const Button: React.FC<ButtonProps> = ({ title, disabled, onPress }): JSX
         textAlign: 'center',
         color: '#1f2937',
         fontSize: 14,
-        fontWeight: '700'
       }}>{title}</Text>
     </TouchableOpacity>
   )

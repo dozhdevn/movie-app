@@ -1,9 +1,14 @@
-import  UserStore  from "./stores/UserStores"
+import AuthStore from "./stores/AuthStore"
+import UserStore from "./stores/UserStore"
+import StoriesStore from "./stores/StoriesStore"
+import CardsStore from "./stores/CardsStore"
 
-interface IUser {
+export interface IUser {
   _id: string
+  name: string
+  username: string
   email: string
-  isAdmin: boolean
+  password: string
 }
 
 export interface IUserData {
@@ -15,6 +20,23 @@ export interface ILoginData {
   password: string
 }
 
+export interface IStory {
+  id: string
+  title: string
+  story: string
+}
+
+export interface ICard {
+  balance: number
+  cardNumber: string
+  currency: string
+  name: string
+
+}
+
 export interface IStore {
+  auth: typeof AuthStore
   user: typeof UserStore
+  stories: typeof StoriesStore
+  cards: typeof CardsStore
 }

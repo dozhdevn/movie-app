@@ -7,23 +7,28 @@ const fakeUser = {
   password: '123321'
 }
 
-class UserStore {
+class AuthStore {
   auth = false
 
   constructor() {
     makeObservable(this, {
       auth: observable,
-      login: action
+      login: action,
+      logOut: action
     })
   }
 
   login = (loginData: ILoginData) => {
-    if(loginData.email === fakeUser.email && loginData.password === fakeUser.password) {
+    if(loginData.email.toLowerCase() === fakeUser.email && loginData.password === fakeUser.password) {
       this.auth = true
       return
     }
     this.auth = false
   }
+
+  logOut = () => {
+    this.auth = false
+  }
 }
 
-export default new UserStore()
+export default new AuthStore()
