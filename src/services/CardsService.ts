@@ -14,4 +14,10 @@ export class CardsService {
       card
     )
   }
+
+  static async changeBalanceCard(id: string, balance: number) {
+    await axios.put(`https://632cd7b0519d17fb53b4c62d.mockapi.io/cards/${id}`, 
+    {balance}
+    )
+  }
 }

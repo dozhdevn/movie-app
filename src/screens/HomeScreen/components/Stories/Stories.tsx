@@ -4,7 +4,6 @@ import { ScrollView, View } from 'react-native'
 import { useStores } from '../../../../stores'
 import { StoryItem } from './StoryItem'
 
-
 export const Stories: React.FC = observer(() => {
 
   const { stories } = useStores()
@@ -14,7 +13,7 @@ export const Stories: React.FC = observer(() => {
   }, [])
 
   return (
-    <View style={{ marginBottom: 38, marginTop: 28 }}>
+    <View style={{ marginBottom: 38, marginTop: 28, paddingLeft: 16 }}>
       <ScrollView horizontal showsHorizontalScrollIndicator={false}>
         {
           stories.stories.map(story => (

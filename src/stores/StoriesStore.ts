@@ -3,7 +3,7 @@ import { IStory } from "../interfaces"
 import { StoriesService} from "../services/StoriesService"
 
 
-export class StoriesStore {
+class StoriesStore {
   stories: IStory[] = []
 
   storiesLoading: boolean = false

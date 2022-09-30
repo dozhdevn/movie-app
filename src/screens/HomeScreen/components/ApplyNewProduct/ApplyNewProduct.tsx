@@ -2,7 +2,7 @@ import { View, Text, Alert } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { Button } from '../../../../components/Button'
 import { ICard } from '../../../../interfaces'
-import { getRandomCardNumber } from '../../../../utils/getEandomCardNumber'
+import { getRandomCardNumber } from '../../../../utils/getRandomCardNumber'
 
 
 export const ApplyNewProduct:React.FC<{addCard:(card: ICard) => void}> = ({addCard}) => {
@@ -51,13 +51,15 @@ export const ApplyNewProduct:React.FC<{addCard:(card: ICard) => void}> = ({addCa
   useEffect(() => {
     if(currency && cardType) {
       addCard({
-        currency, name: cardType, balance: 0, cardNumber: getRandomCardNumber()})
+        currency, name: cardType, balance: 0, cardNumber: getRandomCardNumber(),
+        id: ''
+      })
       setCurrency(null)
       setCardType(null)
     }
   }, [currency, cardType])
 
   return (
-    <Button title='Apply for a new product' onPress={clickAlert} primary />
+    <Button title='Apply for a new product' onPress={clickAlert} primary style={{marginTop: 0}}/>
   )
 }

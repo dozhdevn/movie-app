@@ -1,6 +1,5 @@
 import { action, makeObservable, observable, computed } from "mobx";
 import { ILoginData, IUserData } from "../interfaces";
-import { UserService } from "../services/UserService";
 
 const fakeUser = {
   email: 'test',
@@ -8,7 +7,7 @@ const fakeUser = {
 }
 
 class AuthStore {
-  auth = false
+  auth: boolean = false
 
   constructor() {
     makeObservable(this, {

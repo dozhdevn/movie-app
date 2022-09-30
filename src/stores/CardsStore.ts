@@ -2,7 +2,7 @@ import { action, makeObservable, observable } from "mobx"
 import { ICard } from "../interfaces"
 import { CardsService } from "../services/CardsService"
 
-export class CardsStore {
+class CardsStore {
   cards: ICard[] = []
 
   cardsLoading: boolean = false
@@ -13,7 +13,8 @@ export class CardsStore {
       cardsLoading: observable,
       getCards: action,
       setCards: action,
-      addCard: action
+      addCard: action,
+      changeBalanceCard: action
     })
   }
 
@@ -39,6 +40,15 @@ export class CardsStore {
       this.getCards()
     } catch (error) {
       console.log('Ошибка при добавлении банковской карты')
+    }
+  }
+
+  changeBalanceCard = async (id: string, balance: number) => {
+    try {
+      await CardsService.changeBalanceCard(id, balance)
+      this.getCards()
+    } catch (error) {
+      console.log('Ошибка при переводе средств')
     }
   }
 }

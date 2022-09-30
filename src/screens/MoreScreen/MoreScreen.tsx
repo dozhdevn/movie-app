@@ -1,10 +1,16 @@
 import React from 'react'
-import { View, Text } from 'react-native'
+import { Heading } from '../../components/Heading'
+import { MainLayout } from '../../layouts/MainLayout'
+import { Currencies } from './components/Currencies/Currencies'
+import { Menu } from './components/Menu/Menu'
 
 export const MoreScreen = () => {
+
   return (
-    <View>
-      <Text>MoreScreen</Text>
-    </View>
+    <MainLayout>
+      <Heading title='More'/>
+      <Currencies/>
+      <Menu/>
+    </MainLayout>
   )
 }

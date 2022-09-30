@@ -4,7 +4,7 @@ export const styles = StyleSheet.create({
   storyWrapper: {
     width: 96,
     height: 96,
-    marginLeft: 16,
+    marginRight: 16,
     borderColor: '#60a5fa',
     borderStyle: 'solid',
     padding: 2,

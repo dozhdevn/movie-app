@@ -36,6 +36,7 @@ export const LoginForm: React.FC = observer((): JSX.Element => {
             onBlur={onBlur}
             onChangeText={onChange}
             value={value}
+            autoCapitalize='none'
           />
         )}
       />
@@ -60,7 +61,6 @@ export const LoginForm: React.FC = observer((): JSX.Element => {
         title='Let`s go!'
         disabled={false}
         onPress={handleSubmit(submitHandler)}/>
-      <Text>{auth.auth ? 'Да' : 'Нет'}</Text>
     </View>
   )
 })

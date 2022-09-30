@@ -4,7 +4,7 @@ import { View, Text } from 'react-native'
 export const SupportScreen = () => {
   return (
     <View>
-      <Text>SupportScreen</Text>
+      <Text>in development...</Text>
     </View>
   )
 }

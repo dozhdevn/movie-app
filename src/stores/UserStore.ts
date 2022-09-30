@@ -2,7 +2,7 @@ import { action, makeObservable, observable } from "mobx";
 import { IUser } from "../interfaces";
 import { UserService } from "../services/UserService";
 
-export class UserStore {
+class UserStore {
 	user: IUser | null = null
 
 	userLoading: boolean = false
