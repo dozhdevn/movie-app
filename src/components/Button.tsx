@@ -1,12 +1,12 @@
 import React from 'react'
-import { Text, TouchableOpacity } from "react-native";
+import { StyleProp, Text, TextStyle, TouchableOpacity } from "react-native";
 
 interface ButtonProps {
   primary?: boolean
   disabled?: boolean
   title: string
   onPress: () => void
-  style?: any
+  style?: StyleProp<TextStyle>
 }
 
 export const Button: React.FC<ButtonProps> = ({ title, disabled = false, onPress, primary = false, style }): JSX.Element => {
@@ -14,15 +14,14 @@ export const Button: React.FC<ButtonProps> = ({ title, disabled = false, onPress
     <TouchableOpacity
       disabled={disabled}
       onPress={onPress}
-      style={{
+      style={[{
         backgroundColor: primary ? '#fde047' : '#e5e7eb',
         width: '100%',
         padding: 12,
         marginBottom: 16,
         marginTop: 16,
-        borderRadius: 12,
-        ...style
-      }}
+        borderRadius: 12
+      }, style]}
     >
       <Text style={{
         textAlign: 'center',
